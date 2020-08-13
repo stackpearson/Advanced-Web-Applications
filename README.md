@@ -24,13 +24,13 @@ Follow these steps to set up and work on your project:
 
 ## Minimum Viable Product
 
-The MVP of this project will be broken up between 2 stages. Follow each step.
+The MVP of this project will be broken up between 3 stages. Follow each step.
 
 ### Stage 1 - Authentication
 
 Build a login form to authenticate your users.
 
-- [ ] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
+- [ ] Construct an AXIOS request to retrieve a token from the server after users log in. You'll use this token to interact with the API and access protected/private routes.
 - [ ] Save the token to localStorage
 - [ ] Build a `axiosAuth` module to create an instance of axios with the authentication header
 - [ ] Build a `PrivateRoute` component and use it to protect a route that renders the `AnimalDashboard` component
@@ -43,6 +43,9 @@ Hint: Because species lives as a key-value pair inside the classification object
 - [ ] In `AnimalForm.js`, complete the `saveUpdate` and `deleteAnimal` functions to make AJAX requests to the API to edit/delete data
 - [ ] Watch and enjoy as your app responds to updates in the data. Pay special attention to how `AnimalDashboard.js`, `AddAnimal.js`, `AnimalForm.js`, and `AnimalList.js`, all interact to make full CRUD functionality possible
 
+### Stage 3 - Testing
+- [ ] Write a test using the rerender function after your props have been updated in one of your components.
+- [ ] Write a test that mocks an asynchronous function in your app and checks for the data being rendered.
 ### API Documentation
 
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'test', password: 'test' }`
