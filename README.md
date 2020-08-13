@@ -31,9 +31,9 @@ The MVP of this project will be broken up between 3 stages. Follow each step.
 Build a login form to authenticate your users.
 
 - [ ] Construct an AXIOS request to retrieve a token from the server after users log in. You'll use this token to interact with the API and access protected/private routes.
-- [ ] Save the token to localStorage
-- [ ] Build a `axiosAuth` module to create an instance of axios with the authentication header
-- [ ] Build a `PrivateRoute` component and use it to protect a route that renders the `AnimalDashboard` component
+- [ ] Save the token to localStorage.
+- [ ] Build a `axiosAuth` module to create an instance of axios with the authentication header.
+- [ ] Build a `PrivateRoute` component and use it to protect the routes that render the `AnimalDashboard` component and `AddAnimal` component.
 
 ### Stage 2 - Consuming the API - CRUD (Create - Read - Update - Delete)
 
