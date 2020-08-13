@@ -45,7 +45,11 @@ Hint: Because species lives as a key-value pair inside the classification object
 
 ### Stage 3 - Testing
 - [ ] Write a test using the rerender function after your props have been updated in one of your components.
+
+### Stretch
 - [ ] Write a test that mocks an asynchronous function in your app and checks for the data being rendered.
+- [ ] Add more styling to the app using a styling/component library.
+- [ ] Add images to each of the animals.
 ### API Documentation
 
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'test', password: 'test' }`
