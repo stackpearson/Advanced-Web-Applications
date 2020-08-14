@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch } from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute';
 
 import Login from "./components/Login.js";
 import Header from "./components/Header.js";
+import AddAnimal from './components/AddAnimal';
+import AnimalDashboard from './components/AnimalDashboard';
 
 export default function App() {
 
@@ -11,8 +14,9 @@ export default function App() {
     <div className="App">
       <Header />
       <Switch>
-        {/* Build out a Private Route for both Animal Dashboard + Add Animal*/}
+        <PrivateRoute exact path='/creatures' component={AnimalDashboard} />
         <Route exact path="/login" component={Login} />
+        <Route path ='/add' component={AddAnimal} />
       </Switch>
     </div>
   );
