@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useHistory} from 'react-router-dom';
 
 const initialAnimal = {
     name: '',
@@ -10,6 +12,8 @@ export default function AnimalForm({animals, updateAnimals }) {
 
     const [ updating, setUpdating ] = useState(false);
     const [animalToUpdate, setAnimalToUpdate] = useState(initialAnimal);
+    // const {id} = useParams();
+    const {goBack} = useHistory()
 
     const editAnimal = animal => {
         setUpdating(true);
@@ -21,10 +25,29 @@ export default function AnimalForm({animals, updateAnimals }) {
         // How can we update the animal information?
         // Where can we get the ID? 
         // Where is the information stored?
+        axiosWithAuth()
+        .put(`/animals/${animalToUpdate.id}`, animalToUpdate)
+        .then((res) => {
+            console.log('put request from AnimalForm', res)
+            window.location.href='/creatures'
+        })
+        .catch((err) => {
+            console.log('error in put request', err)
+        })
+
     }
 
     const deleteAnimal = animal => {
         // How can we delete an animal?
+        axiosWithAuth()
+        .delete(`/animals/${animalToUpdate.id}`, animalToUpdate)
+        .then((res) => {
+            console.log('succesfull delete', res)
+            window.location.href='/creatures'
+        })
+        .catch((res) => {
+            console.log('delete failed', res)
+        })
     }
 
     return (
@@ -33,8 +56,9 @@ export default function AnimalForm({animals, updateAnimals }) {
                 {animals.map(animal => (
                     <li key={animal.name} onClick={() => editAnimal(animal)} className="edit-animals">
                         <span>
-                            <span onClick={e => {
+                            <span className='delete-button' onClick={e => {
                                     e.stopPropagation();
+                                    editAnimal(animal);
                                     deleteAnimal(animal)
                                 }
                             } >
